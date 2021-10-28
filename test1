@@ -1,0 +1,229 @@
+import datetime
+
+print("\033[33m====================================================\n"
+      "              FORMULÁRIO INTELIGENTE\n"
+      "====================================================\n\033[m")
+print("\033[34m > Olá.\n"
+      " > Este formulário está sendo preenchido em [{}]. \033[m".format(datetime.datetime.today().strftime('%d-%m-%Y')))
+
+N = str(input("\33[94m > Antes de começar, digite seu nome completo: \033[m"))
+print("\033[32m====================================================================\n"
+      f" > Boa Noite [{N}], esse formulário será arquivado no término.\n"
+      "====================================================================\033[m")
+
+while True:
+    try:
+        DN = int(input("\033[94m> Digite o ano que você nasceu: \033[m"))
+        DataAtual = int(datetime.datetime.today().strftime('%Y'))
+        Id = DataAtual - DN
+        print("\033[32m===================================\n"
+              f" => Você nasceu em {DN}.\n"
+              f" => Você tem {Id} anos de Idade.\n"
+              "===================================\033[m")
+        break
+    except ValueError:
+        print("\033[31mError. O ano digitado não é válido. Tente Novamente...\033[m")
+
+while True:
+    Sex = str(input("\033[94m> Digite o seu sexo [F/M]: \033[m"))
+    if Sex.upper()[0] == 'F':
+        print("\033[32m=========================\n"
+              " => Seu sexo é Feminino.\n"
+              "=========================\033[m")
+        break
+    elif Sex.upper()[0] == 'M':
+        print("\033[32m========================\n"
+              " => Seu sexo é Masculino.\n"
+              "========================\033[m")
+        break
+    else:
+        print("\033[31m #Error. Sexo Inválido. Tente Novamente...\033[m")
+
+Cid = str(input("\033[94m > Digite o nome da cidade onde você nasceu: \033[m"))
+CidA = str(input("\033[94m > Digite o nome da cidaqde onde você mora atualmente: \033[m"))
+
+print("\033[33m=============================\n"
+      " > Analise abaixo:\n"
+      " [1] Medicina\n [2] Programador\n [3] Desigh Gráfico\n [4] Segurança da Informação\n"
+      "=============================\033[m")
+while True:
+    try:
+        P1 = int(input("\033[94m > Qual das áreas acima você pretende seguir [Digite Somente o Número]: \033[m"))
+        while P1 < 1 or P1 > 4:
+            print("\033[31m #Error. Opção Inválida. Tente Novamente...\033[m")
+            P1 = int(input("\033[94m > Qual das áreas acima você pretende seguir [Digite Somente o Número]: \033[m"))
+        if P1 == 1:
+            print("\033[32m==============================================================================\n"
+                  "[Opção 01] - Ótima escolha. A Medicina está cada vez mais avançando. Parabéns!\033[m")
+        elif P1 == 2:
+            print("\033[32m=========================================================================================================================\n"
+                "[Opção 02] - Excelente escolha. Fico feliz por escolher a opção de programador. A tecnologia em softwares depende de nós.\033[m")
+        elif P1 == 3:
+            print("\033[32m====================================================================================\n"
+                  "[Opção 03] - Muito Bom. A parte de [Front end] é responsabilidade do Desigh Gráfico.\033[m")
+        elif P1 == 4:
+            print("\033[32m===========================================================================================\n"
+                  "[Opção 04] - Sim. Segurança na Internet é muito importante. Por isso é preciso se proteger.\033[m")
+        break
+    except ValueError:
+        print("\033[31m #Error. Valor digitado não é um número. Tente Novamente: \033[m")
+
+print("\033[32m=========================================================================================================================\n\033[m"
+    "\033[34m   > Bem, vamos deixar o formulário de lado um pouco.\033[m")
+Maior = Menor = Soma = 0
+print(
+    "\033[34m   > Vamos brincar um pouquinho: Você vai digitar (03 Número inteiros) e eu terei que adivinhar qual deles é o maior.\033[m")
+while True:
+    try:
+        N1 = int(input("\033[33m[ Primeiro Número ]: "))
+        N2 = int(input("[ Segundo  Número ]: "))
+        N3 = int(input("[ Terceiro Número ]: \033[m"))
+        Soma = N1 + N2 + N3
+
+        Menor = N1
+        if N2 < Menor:
+            Menor = N2
+        if N3 < Menor:
+            Menor = N3
+        Maior = N1
+        if N2 > Maior:
+            Maior = N2
+        if N3 > Maior:
+            Maior = N3
+
+        print("\033[32m==========================================\n"
+              f" => O MAIOR número digitado foi [{Maior}].\n"
+              f" => O MENOR número digitado foi [{Menor}].\n"
+              f" => A Soma de todos os número digitados é: [{Soma}].\n"
+              "==========================================\033[m")
+
+        try:
+            Op = str(input("\033[94m => VOCÊ QUER CONTINUAR BRINCANDO ? [S/N]: \033[m"))
+            if Op.upper()[0] == 'N':
+                break
+            assert Op == 'S', "Opção Inválida."
+        except AssertionError:
+            while Op.upper()[0] != 'S':
+                print("\033[31m #Error. Opção Inválida. Tente Novamente...\033[m")
+                Op = str(input("\033[94m => VOCÊ QUER CONTINUAR BRINCANDO ? [S/N]: \033[m"))
+                if Op.upper()[0] == 'N':
+                    break
+    except ValueError:
+        print("\033[31m #Error. O Valor digitado não é um Número. Tente Novamente...\033[m")
+
+print("\033[34m======================================================\n"
+      " => Bem, Vamos continuar com nosso Cadastro. :)\n\033[m")
+print("\033[33m===============================\n"
+      " [1] Grand Theft Auto (GTA) \n"
+      " [2] Minecraft \n"
+      " [3] Battlefield \n"
+      " [4] Call of Duty \n"
+      " [5] Modern Combat \n"
+      " [6] FarCry Edition \n"
+      "===============================\n\033[m")
+while True:
+    Op2 = int(input("\033[94m > Qual das franquias acima você mais gosta? [Digite somente o Número]: \033[m"))
+    if Op2 < 1 or Op2 > 6:
+        print("\033[31m #Error. Opção Inválida. Tente Novamente...\033[m")
+    elif Op2 == 1:
+        print("\033[32m [VOCÊ ESCOLHEU A FRANQUIA GTA].\n\033[m"
+              "\033[92mGrand Theft Auto (GTA) é uma série de jogos eletrônicos criada por David Jones e Mike Dailly, \n"
+              "sendo posteriormente gerenciada pelos irmãos Dan e Sam Houser, Leslie Benzies e Aaron Garbut. \n"
+              "A maioria dos jogos foi desenvolvida pela Rockstar North (antiga DMA Design) e publicada pela Rockstar Games. \n"
+              "O nome da série é um termo policial utilizado nos Estados Unidos para identificar roubos de automóveis: \n"
+              "Grand Theft refere-se a furtos de valor elevado (maior que US $ 40,00) e Auto designa os automóveis. \n"
+              "O nome desse crime, no Brasil, é Roubo Qualificado de Automóveis e em Portugal designa-se por carjacking.\n"
+              "SEQUÊNCIA DE LANÇAMENTOS: Grand Theft Auto 1 / Grand Theft Auto London, 1969 / 	Grand Theft Auto London, 1961 /\n"
+              "Grand Theft Auto Advance / Grand Theft Auto 2 / Grand Theft Auto Chinatown Wars / Grand Theft Auto 3 /\n"
+              "Grand Theft Auto Vice City Stories / 	Grand Theft Auto Vice City / Grand Theft Auto Vice City Stories /\n"
+              "Grand Theft Auto San Andreas / Grand Theft Auto IV / Grand Theft Auto IV The Lost and Damned /\n"
+              "Grand Theft Auto The Ballad of Gay Tony / Grand Theft Auto V.\n"
+              " [PARABÉNS PELA ESCOLHA].\n\033[m")
+        break
+    elif Op2 == 2:
+        print("\033[32m [VOCÊ ESCOLHEU A FRANQUIA MINECRAFT].\033[m"
+              "\033[92mAs 200 milhões de cópias vendidas, divulgadas em maio, já seriam o suficiente para que Minecraft aparecesse \n"
+              "no topo da lista de games mais vendidos do mundo.Mas isso não é suficiente para a Mojang, estúdio que ainda \n"
+              "era uma desconhecida no lançamento do jogo em 2009, ou para a Microsoft, compradora da empresa em 2014 por \n"
+              "US$ 2,5 bilhões.Com a chegada de dois novos membros da família, a ideia é que agora há uma versão da franquia \n"
+              "para todos os tipos de jogadores — e só o game original já conta com mais de 126 milhões deles, ativos todo mês.\n"
+              " [ÓTIMA ESCOLHA]. \n\033[m")
+        break
+    elif Op2 == 3:
+        print("\033[32m [VOCÊ ESCOLHEU A FRANQUIA BATTLEFIELD].\n\033[m"
+              "\033[92mBattlefield é uma série de jogos eletrônicos da Electronic Arts em parceria com a DICE, \n"
+              "que teve início em 2002 e que, ao todo, teve 16 jogos feitos e outras 18 expansões para eles.\n"
+              "SEQUENCIA DE LANÇAMENTOS: Battlefield 1942 / Battlefield 1942: The Road To Rome / \n"
+              "Battlefield 1942: The Secret Weapons of WWII / Battlefield Vietnam /\n"
+              "Battlefield 2 / Battlefield 2: Special Forces / Battlefield 2: Euro Force /\n"
+              "Battlefield 2: Armored Fury / Battlefield 2: Modern Combat / Battlefield 2142 /\n"
+              "Battlefield Heroes / Battlefield Bad Company / Battlefield 1943 / \n"
+              "Battlefield Bad Company 2 / Battlefield Play4Free / Battlefield 3\n"
+              "Battlefield 4 / Battlefield Hardline / Battlefield 1 / Battlefield V.\n"
+              " [BELÍSSIMA ESCOLHA].\n\033[m")
+        break
+    elif Op2 == 4:
+        print("\033[32m [VOCÊ ESCOLHEU A FRANQUIA CALL OF DUTY].\n\033[m"
+              "\033[92mCall of Duty (frequentemente abreviado como CoD) é uma série de jogos eletrônicos de guerra, \n"
+              "ação e tiro em primeira pessoa publicado pela Activision e desenvolvida pela Infinity Ward, \n"
+              "pela Sledgehammer Game Studio e pela Treyarch, com as empresas se revezando a cada lançamento. "
+              "O primeiro título da série começou no computador, mais tarde expandindo-se para os vários tipos de consoles. \n"
+              "Também foram lançados vários jogos spin-off. Os primeiros títulos da série se concentraram em jogos ambientados \n"
+              "na Segunda Guerra Mundial, apresentando batalhas e acontecimentos históricos daquele período. \n"
+              "Com o tempo, a série viu jogos ambientados na Guerra Fria, em tempos atuais, mundos futuristas até o espaço sideral.\n"
+              " [PARABÉNS PELA ESCOLHA].\033[m")
+        break
+    elif Op2 == 5:
+        print("\033[32m [VOCÊ ESCOLHEU A FRANQUIA MODERN COMBAT].\n\033[m"
+              "\033[92mORDEM DE LANÇAMENTOS: Modern Combat: Sandstorm / Modern Combat 2 / Modern Combat 3 /\n"
+              "Modern Combat 4 Blackout Zero / Modern Combat 5 / Moderm Combat Versus.\n\033[m")
+        break
+    elif Op2 == 6:
+        print("\033[32m [VOCÊ ESCOLHEU A FRANQUIA FARCRY].\n\033[m"
+              "\033[92mFar Cry é uma série de videojogos de tiro na primeira pessoa. O primeiro jogo, Far Cry, \n"
+              "foi produzido pelos estúdios Crytek na Alemanha e editado pela Ubisoft em Março de 2004 para \n"
+              "Microsoft Windows, recebendo boas criticas na altura do lançamento. Desde então todos os jogos \n"
+              "foram produzidos pela Ubisoft Montreal. \n"
+              "O jogo original possui cinco sequências: Far Cry 2, Far Cry 3, Far Cry 4, Far Cry 5 e Far Cry 6, \n"
+              "bem como outros jogos paralelos, incluindo Far Cry Instincts, Far Cry Instincts: Evolution, Far Cry \n"
+              "Instincts: Predator, Far Cry: Vengeance, Far Cry 3: Blood Dragon, Far Cry Primal e Far Cry: New Dawn.\n"
+              "[1] Em 2008 foi lançado um filme alemão com o nome Far Cry, baseado no primeiro jogo.\n\033[m")
+        break
+
+print("\033[33m===============================================================\n"
+      "                         TABELA FINAL\n"
+      "===============================================================\033[m")
+print(f"\033[92m > Seu nome é [{N}]")
+if Sex.upper()[0] == 'F':
+    print(" > Seu sexo é FEMININO.")
+elif Sex.upper()[0] == 'M':
+    print(" > Seu Sexo é MASCULINO.")
+print(f" > Seu ANO de nascimento é [{DN}].\n"
+      f" > O nome da cidade onde você nasceu é [{Cid}].\n"
+      f" > O nome da sua cidade ATUAL é [{CidA}]")
+if P1 == 1:
+    print(" > Você escolheu como carreira a [MEDICINA].")
+elif P1 == 2:
+    print(" > Você escolheu como carreira a [PROGRAMAÇÃO].")
+elif P1 == 3:
+    print(" > Você escolheu como carreira o [Desigh Gráfico].")
+elif P1 == 4:
+    print(" > Você escolheu como carreira a [SEGURANÇA DA INFORMAÇÃO].")
+
+if Op2 == 1:
+    print(" > Sua franquia preferida é [GTA].")
+elif Op2 == 2:
+    print(" > Sua franquia preferida é [MINECRAFT].")
+elif Op2 == 3:
+    print(" > Sua franquia preferida é [BATTLEFIELD].")
+elif Op2 == 4:
+    print(" > Sua franquia preferida é [CALL OF DUTY].")
+elif Op2 == 5:
+    print(" > Sua franquia preferida é [MODERN COMBAT].")
+elif Op2 == 6:
+    print(" > Sua franquia preferida é [FARCRY EDITION].\033[m")
+
+
+print("\033[33m===========\n"
+      "    FIM\n"
+      "===========\033[m\n")
